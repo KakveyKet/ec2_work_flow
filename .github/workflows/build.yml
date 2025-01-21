@@ -39,12 +39,11 @@ jobs:
 
       # Step 6: Deploy build to FTP server (if needed)
       - name: Deploy build to FTP server
-         run: |
-        lftp -u your-ftp-username,your-ftp-password ftp://your-ftp-server.com <<EOF
-        mirror -R build /path/to/remote/directory
-        bye
-        EOF
-
+        run: |
+          lftp -u username,password ftp://your.ftp.server <<EOF
+          mirror -R build /path/to/remote/directory
+          bye
+          EOF
 
       # Step 7: Deploy to AWS EC2
       - name: Deploy to AWS EC2
